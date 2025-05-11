@@ -5,8 +5,8 @@ services:
     image: postgres:15  # Official PostgreSQL image
     restart: always  # Restart the container if it stops
     environment:
-      POSTGRES_USER: username  # DB username
-      POSTGRES_PASSWORD: password  # DB password
+      POSTGRES_USER: postgres  # DB username
+      POSTGRES_PASSWORD: postgres  # DB password
       POSTGRES_DB: student-performance  # PostgreSQL Database name
     volumes:
       - postgres_data:/var/lib/postgresql/data  # Store DB files persistently
@@ -17,8 +17,8 @@ services:
     image: dpage/pgadmin4
     restart: always
     environment:
-      PGADMIN_DEFAULT_EMAIL: email
-      PGADMIN_DEFAULT_PASSWORD: password
+      PGADMIN_DEFAULT_EMAIL: admin@sp.com
+      PGADMIN_DEFAULT_PASSWORD: admin
     ports:
       - "5050:80"
     depends_on:
