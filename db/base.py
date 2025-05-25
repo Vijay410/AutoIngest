@@ -1,11 +1,11 @@
-from abc import ABC, abstractmethod
-from sqlalchemy.ext.asyncio import AsyncSession
-from typing import AsyncGenerator
+from typing import Optional
+from pydantic import BaseModel, Field
+from pydantic_settings import BaseSettings
 
 
-class AbstractDatabase(ABC):
-    @abstractmethod
-    def get_session(self) -> AsyncGenerator[AsyncSession, None]:
-        """Get a database session."""
-        pass
-
+class DatabaseConfig:
+    host = "localhost"
+    port = 5432
+    user = "admin"
+    password = "admin"
+    database = "StudentInfo"
