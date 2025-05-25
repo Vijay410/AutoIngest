@@ -1,8 +1,8 @@
-"""create student performance table
+"""create_student_table
 
-Revision ID: d59cddaffaf5
-Revises: 
-Create Date: 2025-05-11 16:17:22.026628
+Revision ID: c76a54f10cc0
+Revises: d59cddaffaf5
+Create Date: 2025-05-25 19:42:25.810684
 
 """
 from typing import Sequence, Union
@@ -12,8 +12,8 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = 'd59cddaffaf5'
-down_revision: Union[str, None] = None
+revision: str = 'c76a54f10cc0'
+down_revision: Union[str, None] = 'd59cddaffaf5'
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
 
@@ -21,7 +21,8 @@ depends_on: Union[str, Sequence[str], None] = None
 def upgrade() -> None:
     op.execute(
         """
-        CREATE TABLE public."Students" (
+        DROP TABLE IF EXISTS public."Students";
+        CREATE TABLE public."StudentsInfo" (
             "StudentID" SERIAL PRIMARY KEY,
             "Gender" VARCHAR(10),
             "RaceOREthnicity" TEXT,
@@ -34,7 +35,6 @@ def upgrade() -> None:
         );
         """
     )
-
 
 
 def downgrade() -> None:
