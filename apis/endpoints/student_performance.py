@@ -13,4 +13,6 @@ def get_student_performance(
     """
     Retrieve a student's performance record by their unique student ID.
     """
-    return student_service.get_student_by_id(student_id=student_id)
+    return student_service.get_student_by_id(
+        student_id=student_id
+        )

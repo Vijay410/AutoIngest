@@ -8,7 +8,10 @@ class StudentService:
     Service for managing student performance records.
     """
     
-    def __init__(self, repo: StudentRepository):
+    def __init__(
+        self, 
+        repo: StudentRepository
+        ):
         self.repo = repo
 
     def get_student_by_id(
@@ -27,10 +30,14 @@ class StudentService:
             The performance record of the student if found, otherwise None."""
         
         # get student performance info from the repository
-        student_performance_info = self.repo.get_student_by_id(student_id)
+        student_performance_info = self.repo.get_student_by_id(
+            student_id
+            )
         # validate and return the student performance info if found
         if student_performance_info:
-            return StudentPerformance.model_validate(student_performance_info)
+            return StudentPerformance.model_validate(
+                student_performance_info
+                )
         # return an HTTP exception if the student is not found
         return HTTPException(
             status_code=status.HTTP_404_NOT_FOUND,

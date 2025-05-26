@@ -5,7 +5,10 @@ from repo.student.student_performance import StudentRepository
 from apis.functionalities.student.service import StudentService
 
 class StudentFactory:
-    def __init__(self, repo: StudentRepository):
+    def __init__(
+        self, 
+        repo: StudentRepository
+        ):
         self.repo = repo
 
     def get_service(self) -> StudentService:
@@ -15,7 +18,9 @@ class StudentFactory:
         Returns:
             StudentService: An instance of StudentService initialized with the repository.
         """
-        return StudentService(repo=self.repo)
+        return StudentService(
+            repo=self.repo
+            )
 
 def get_student_service(
     db: Session = Depends(create_session)

@@ -7,7 +7,10 @@ class StudentRepository:
     """
     Repository for managing students data.
     """
-    def __init__(self, db: Session):
+    def __init__(
+        self, 
+        db: Session
+        ):
         self.db = db
 
     def get_student_by_id(
