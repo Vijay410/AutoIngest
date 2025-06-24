@@ -6,7 +6,7 @@ from apis.functionalities.student.factory import get_student_service
 router = APIRouter()
 
 @router.get("/students/student-performance/{student_id}")
-def get_student_performance(
+async def get_student_performance(
     student_id: int = Path(..., description="The unique identifier of the student"),
     student_service: StudentService = Depends(get_student_service)
 ):
